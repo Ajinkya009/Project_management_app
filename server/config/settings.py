@@ -25,7 +25,7 @@ SECRET_KEY = 'ndol$53d-d$95mtjd+05y*nubnv#fhx1d%la&*u!a&l=&s=vnn'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
