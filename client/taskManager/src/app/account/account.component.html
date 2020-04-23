@@ -1,0 +1,17 @@
+<div class="login-page">
+  <div class="form">
+    <form *ngIf="!loginForm" class="register-form" (submit)="registerUser($event)">
+      <input type="text" placeholder="Userame" id="username"/>
+      <input type="password" placeholder="Password" id="password"/>
+      <input type="text" placeholder="Email address" id="email"/>
+      <button>create</button>
+      <p class="message">Already registered? <a (click)="toggleForm(true)">Sign In</a></p>
+    </form>
+    <form *ngIf="loginForm" class="login-form" (submit)="loginUser($event)">
+      <input type="text" placeholder="username" id="username"/>
+      <input type="password" placeholder="password" id="password"/>
+      <button>login</button>
+      <p class="message">Not registered? <a (click)="toggleForm(false)">Create an account</a></p>
+    </form>
+  </div>
+</div>

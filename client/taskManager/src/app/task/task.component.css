@@ -1,0 +1,22 @@
+.taskDetailsDiv{
+    width:30%;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5%;
+}
+
+.name, .description{
+    width:100%;
+}
+
+.endDate{
+    margin-left: 5%;
+}
+
+.status{
+    margin-left: 5%;
+}
+
+.save{
+    margin-left: 5%;
+}
