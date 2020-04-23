@@ -19,9 +19,9 @@ from django.urls import path
 from django.views.generic.base import TemplateView
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    #path('admin/', admin.site.urls),
     path('api/', include('account.urls')),
     path('api/', include('taskManager.urls')),
-    #url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")
+    url(r'^.*', TemplateView.as_view(template_name="home.html"), name="home")
 ]
 

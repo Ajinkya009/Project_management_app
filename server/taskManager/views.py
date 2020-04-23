@@ -8,6 +8,8 @@ from django.contrib.auth.models import User
 from django.core import serializers
 from .serializers import ProjectSerializer,TaskSerializer
 from .models import Project,Task
+from django.db.models import Q
+
 # Create your views here.
 
 class ProjectViewSet(viewsets.ModelViewSet):
@@ -23,14 +25,14 @@ class ProjectViewSet(viewsets.ModelViewSet):
 	
 	def get_queryset(self):
 		user = self.request.user
-		return Project.objects.filter(admin=user)
+		return Project.objects.filter(Q(admin=user) | Q(tasks__assignee=user)).distinct()
 
 	def retrieve(self,request,*args,**kwargs):
 		instance = self.get_object()
 		serializer = self.get_serializer(instance)
 		custom_data = {
 			'project': serializer.data,
-			'users': User.objects.values_list('username','id')
+			'users': User.objects.values_list('username','id').order_by('id')
 		}
 		return Response(custom_data)
 
